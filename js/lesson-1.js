@@ -148,17 +148,30 @@
 // якщо ділитися на 5 повертати buzz
 //Якщо ділитися на 3 і на 5 повернути fizzbuzz
 
-function check(num) {
-  if (num % 3 === 0 && num % 5 === 0) {
-    return "fizzbuzz";
-  }
-  if (num % 3 === 0) {
-    return "fizz";
-  }
-  if (num % 5 === 0) {
-    return "buzz";
-  }
-  return "error";
-}
+// function check(num) {
+//   if (num % 3 === 0 && num % 5 === 0) {
+//     return "fizzbuzz";
+//   }
+//   if (num % 3 === 0) {
+//     return "fizz";
+//   }
+//   if (num % 5 === 0) {
+//     return "buzz";
+//   }
+//   return "error";
+// }
 
-console.log(check(7));
+// console.log(check(7));
+
+
+// Переверни рядок у зворотньому порядку
+
+
+const string = "hello";
+
+let reverseString = "";
+for (let i = string.length - 1; i >= 0; i -= 1) {
+  console.log(string[i])
+  reverseString += string[i]
+  console.log(reverseString)
+}
