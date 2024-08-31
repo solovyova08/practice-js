@@ -29,11 +29,9 @@
 // // str.padStart(targetLength [, padString])
 // console.log(`${hours}:${minutes}`);
 
-
 //Напишіть цикл, який виводить в консоль
 //числа от max до min по зменьшенню
 //Виведіть в консоль суму усіх парних чисел
-
 
 // const min = 0
 // const max = 15
@@ -48,7 +46,6 @@
 // }
 
 // console.log(sum)
-
 
 // function task3(min, max) {
 //     let sum = 0;
@@ -81,22 +78,67 @@
 //то вивести рядок "Вітаю!"
 //в іншому випадку виводити рядок "Невірний пароль!"
 
-const login = prompt("Enter login");
-console.log(login);
+// const login = prompt("Enter login");
+// console.log(login);
 
-if (login === "Адмін") {
-    const password = prompt("Enter password");
-    // if (password === "Я головний") {
-    //     alert("Вітаю!");
-    // } else {
-    //     alert("Невірний пароль!");
-    // }
-    alert(password === "Я головний" ? "Вітаю!" : "Невірний пароль!")
-}
-else if (login === "" || login === null) {
-    alert("Скасовано");
-}
-else {
-    alert("Я вас не знаю");
+// if (login === "Адмін") {
+//     const password = prompt("Enter password");
+//     // if (password === "Я головний") {
+//     //     alert("Вітаю!");
+//     // } else {
+//     //     alert("Невірний пароль!");
+//     // }
+//     alert(password === "Я головний" ? "Вітаю!" : "Невірний пароль!")
+// }
+// else if (login === "" || login === null) {
+//     alert("Скасовано");
+// }
+// else {
+//     alert("Я вас не знаю");
+// }
+
+// Змінна num може набувати 4 значення: 1, 2, 3 або 4. Якщо вона має
+// значення '1', то у змінну result запишемо 'зима', якщо має значення
+// '2' - 'весна' і так далі. Розв'яжіть завдання через switch-case.
+
+// const num = Number(prompt("Enter number from 1 to 4"));
+// let result = "";
+
+// switch (num) {
+//   case 1:
+//     result = "зима";
+//     break;
+//   case 2:
+//     result = "весна";
+//     break;
+//   case 3:
+//     result = "літо";
+//     break;
+//   case 4:
+//     result = "осінь";
+//     break;
+//   default:
+//     result = "Enter number from 1 to 4";
+// }
+
+// console.log(`${num} - ${result}`);
+
+function checkNum(num) {
+  if (typeof num !== "number") {
+    return "not a number";
+  }
+  switch (num) {
+    case 1:
+      return `${num} - зима`;
+    case 2:
+      return `${num} - весна`;
+    case 3:
+      return `${num} - літо`;
+    case 4:
+      return `${num} - осінь`;
+    default:
+      return `Enter number from 1 to 4`;
+  }
 }
 
+console.log(checkNum("2"));
