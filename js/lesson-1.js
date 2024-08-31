@@ -123,22 +123,42 @@
 
 // console.log(`${num} - ${result}`);
 
-function checkNum(num) {
-  if (typeof num !== "number") {
-    return "not a number";
+// function checkNum(num) {
+//   if (typeof num !== "number") {
+//     return "not a number";
+//   }
+//   switch (num) {
+//     case 1:
+//       return `${num} - зима`;
+//     case 2:
+//       return `${num} - весна`;
+//     case 3:
+//       return `${num} - літо`;
+//     case 4:
+//       return `${num} - осінь`;
+//     default:
+//       return `Enter number from 1 to 4`;
+//   }
+// }
+
+// console.log(checkNum("2"));
+
+//Напиши функцію:
+// Якщо число ділитися на 3 повертати fizz
+// якщо ділитися на 5 повертати buzz
+//Якщо ділитися на 3 і на 5 повернути fizzbuzz
+
+function check(num) {
+  if (num % 3 === 0 && num % 5 === 0) {
+    return "fizzbuzz";
   }
-  switch (num) {
-    case 1:
-      return `${num} - зима`;
-    case 2:
-      return `${num} - весна`;
-    case 3:
-      return `${num} - літо`;
-    case 4:
-      return `${num} - осінь`;
-    default:
-      return `Enter number from 1 to 4`;
+  if (num % 3 === 0) {
+    return "fizz";
   }
+  if (num % 5 === 0) {
+    return "buzz";
+  }
+  return "error";
 }
 
-console.log(checkNum("2"));
+console.log(check(7));
