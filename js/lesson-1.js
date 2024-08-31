@@ -50,18 +50,53 @@
 // console.log(sum)
 
 
-function task3(min, max) {
-    let sum = 0;
+// function task3(min, max) {
+//     let sum = 0;
 
-    for (let i = max; i >= min; i--) {
-        console.log(i);
+//     for (let i = max; i >= min; i--) {
+//         console.log(i);
 
-        if (i % 2 === 0) {
-            sum += i;
-        }
-    }
+//         if (i % 2 === 0) {
+//             sum += i;
+//         }
+//     }
 
-    return sum;
+//     return sum;
+// }
+
+// console.log("Result: " + task3(0 ,15));
+
+//Напишіть код, який буде питати
+//логін за допомогою prompt и логіровати результат
+//в консоль браузера
+
+//Якщо користувач вводить "Адмін",
+//то prompt запрашує пароль.
+//Якщо ничого не ввели чи нажата клавіша Esc
+//вивести строку "Скасовано"
+//В противному випадку вивести рядок "Я вас не знаю"
+
+//Пароль перевіряти так:
+//Якщо введен пароль "Я головний",
+//то вивести рядок "Вітаю!"
+//в іншому випадку виводити рядок "Невірний пароль!"
+
+const login = prompt("Enter login");
+console.log(login);
+
+if (login === "Адмін") {
+    const password = prompt("Enter password");
+    // if (password === "Я головний") {
+    //     alert("Вітаю!");
+    // } else {
+    //     alert("Невірний пароль!");
+    // }
+    alert(password === "Я головний" ? "Вітаю!" : "Невірний пароль!")
+}
+else if (login === "" || login === null) {
+    alert("Скасовано");
+}
+else {
+    alert("Я вас не знаю");
 }
 
-console.log("Result: " + task3(0 ,15));
