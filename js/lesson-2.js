@@ -7,15 +7,32 @@
 // <номер елемента> - <значення елемента>
 // Нумерація має починатись з 1
 
-const styles = ['jazz', 'blues'];
-styles.push('rock-n-roll');
-// styles[1] = 'classic';
-styles[styles.indexOf('blues')] = 'classic';
+// const styles = ['jazz', 'blues'];
+// styles.push('rock-n-roll');
+// // styles[1] = 'classic';
+// styles[styles.indexOf('blues')] = 'classic';
 
-function logItems(array) {
-    for (let i = 0; i < array.length; i++) {
-        console.log(`${i + 1} - ${array[i]}`);
-    }
+// function logItems(array) {
+//     for (let i = 0; i < array.length; i++) {
+//         console.log(`${i + 1} - ${array[i]}`);
+//     }
+// }
+
+// logItems(styles);
+// 2. Напиши функцію checkLogin, яка перебирає масив логінів і перевіряє
+// чи є ім'я введене в prompt у цьому масиві і у разі,
+// якщо є - виводить повідомлення в alert "Welcome, <name>!"
+// в іншому випадку - "User not found"
+
+const logins = ["Peter", "John", "Igor", "Sasha"];
+
+function checkLogin(array) {
+  const userInput = prompt("Enter your login");
+
+  if (array.includes(userInput)) {
+    alert(`Welcome, ${userInput}!`);
+  } else {
+    alert("User not found");
+  }
 }
-
-logItems(styles);
+checkLogin(logins);
