@@ -120,30 +120,131 @@
 // raise() возводить першу властивсть в ступінь другої і повертає результат (з перевіркою на наявність властивостей в об'єкті)
 // * винеси перевірку  на наявність властивостей в об'єкті в окремий метод exist ()
 
-const calculator = {
-  read(a, b) {
-    this.a = a;
-    this.b = b;
-  },
+// const calculator = {
+//   read(a, b) {
+//     this.a = a;
+//     this.b = b;
+//   },
 
-  sum() {
-    // if (this.exist()) return this.a + this.b;
-    return this.exist() ? this.a + this.b : "values not found";
-  },
-  mult() {
-    // if (this.a && this.b) return this.a * this.b;
-    return this.exist() ? this.a * this.b : "values not found";
-  },
-  raise() {
-    // if (this.a && this.b) return this.a ** this.b;
-    return this.exist() ? this.a ** this.b : "values not found";
-  },
-  exist() {
-    return this.a && this.b;
-  },
-};
+//   sum() {
+//     // if (this.exist()) return this.a + this.b;
+//     return this.exist() ? this.a + this.b : "values not found";
+//   },
+//   mult() {
+//     // if (this.a && this.b) return this.a * this.b;
+//     return this.exist() ? this.a * this.b : "values not found";
+//   },
+//   raise() {
+//     // if (this.a && this.b) return this.a ** this.b;
+//     return this.exist() ? this.a ** this.b : "values not found";
+//   },
+//   exist() {
+//     return this.a && this.b;
+//   },
+// };
 
-// calculator.read(3, 4);
-console.log(calculator.sum());
-console.log(calculator.mult());
-console.log(calculator.raise());
+// // calculator.read(3, 4);
+// console.log(calculator.sum());
+// console.log(calculator.mult());
+// console.log(calculator.raise());
+
+
+
+// 10. Створіть телефонну книгу - об'єкт phonebook,
+// у якого є властивість contacts (список контактів)
+// та методи управління книгою:
+// add(data) - приймає об'єкт data, де зберігається
+// name, email, category, id, createdAt
+// (name i email - обов'язкові параметри, які треба передавати
+// при додаванні нового контакта,
+// category - може передаватись чи ні, якщо ні - має
+// приймати значення "default",
+// id та createdAt генеруються відповідними методами:
+// generateId() і getDate());
+// *не забудь додати перевірку, якщо контакт з таким ім'ям чи імейлом вже є - ми його не додаємо
+// list() - виводить список контактів у вигляді таблиці;
+// filtered(category) - фільтрує контактів по обраній категорії (друзі, робота і т.д.)
+// delete(name) - видаляє контакт з заданим ім'ям;
+// updateName(oldName, newName) - зиінює ім'я контакта;
+
+const phonebook = {
+    contacts: [],
+    add(data) {
+
+      for (const contact of this.contacts) {
+        if (contact.name === data.name || contact.email === data.email) {
+          return console.log("Contact already exists!")
+        }
+      }
+
+      let newContact = {
+        name: data.name,
+        email: data.email,
+        category: data.category ?? "default",
+        id: this.generateId(),
+        createdAt: this.getDate()
+      }
+
+      this.contacts.push(newContact)
+    },
+    list() {
+      console.table(this.contacts)
+    },
+    filtered(category) {
+      let filteredArray = []
+      for (const contact of this.contacts) {
+        if (contact.category === category) {
+          filteredArray.push(contact)
+        }
+      }
+
+      return filteredArray
+    },
+    delete(name) {
+      for (let i = 0; i < this.contacts.length; i++) {
+        if (this.contacts[i].name === name) {
+          this.contacts.splice(i, 1)
+        }
+      }
+    },
+    updateName(oldName, newName) {
+      for (let i = 0; i < this.contacts.length; i++) {
+        if (this.contacts[i].name === oldName) {
+          this.contacts[i].name = newName
+        }
+      }
+    },
+
+    generateId() {
+      return "#" + Math.random().toString(36).substr(2, 9);
+    },
+    getDate() {
+      return Date.now();
+    },
+  };
+
+
+   phonebook.add({
+      name: "Mango",
+      email: "mango@mail.com",
+      category: "friends",
+    });
+    
+    phonebook.add({
+      name: "Poly",
+      email: "poly@hotmail.com",
+    });
+    phonebook.add({
+      name: "Katy",
+      email: "katy@hotmail.com",
+      category: "friends",
+    });
+    phonebook.add({
+      name: "Katy",
+      email: "katy@hotmail.com",
+      category: "friends",
+    });
+    // phonebook.delete("Mango");
+    phonebook.updateName("Poly", "Sara");
+    console.log(phonebook.filtered("friends"));
+    phonebook.list();
