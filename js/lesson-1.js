@@ -167,11 +167,11 @@
 // Переверни рядок у зворотньому порядку
 
 
-const string = "hello";
+// const string = "hello";
 
-let reverseString = "";
-for (let i = string.length - 1; i >= 0; i -= 1) {
-  console.log(string[i])
-  reverseString += string[i]
-  console.log(reverseString)
-}
+// let reverseString = "";
+// for (let i = string.length - 1; i >= 0; i -= 1) {
+//   console.log(string[i])
+//   reverseString += string[i]
+//   console.log(reverseString)
+// }

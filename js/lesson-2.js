@@ -24,15 +24,34 @@
 // якщо є - виводить повідомлення в alert "Welcome, <name>!"
 // в іншому випадку - "User not found"
 
-const logins = ["Peter", "John", "Igor", "Sasha"];
+// const logins = ["Peter", "John", "Igor", "Sasha"];
 
-function checkLogin(array) {
-  const userInput = prompt("Enter your login");
+// function checkLogin(array) {
+//   const userInput = prompt("Enter your login");
 
-  if (array.includes(userInput)) {
-    alert(`Welcome, ${userInput}!`);
-  } else {
-    alert("User not found");
+//   if (array.includes(userInput)) {
+//     alert(`Welcome, ${userInput}!`);
+//   } else {
+//     alert("User not found");
+//   }
+// }
+// checkLogin(logins);
+
+
+// / 4. Напишіть функцію calculateAverage()
+// яка приймає довільну кількість
+// аргументів і повертає їхнє середнє значення.
+// Додати перевірку, що аргументи це числа
+
+function calculateAverage() {
+  let total = 0;
+  let counter = 0;
+  for (const arg of arguments) {
+    if (typeof arg === "number") {
+      total += arg;
+      counter += 1;
+    }
   }
+  return total / counter;
 }
-checkLogin(logins);
+console.log(calculateAverage(2, 6 ,8, "hello"));
