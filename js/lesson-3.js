@@ -113,27 +113,63 @@ const tweets = [
 // в усіх користувачів разом (не для кожного окремо)
 // має бути відповідь: {js: 5, nodejs: 5, html: 2, css: 2, react: 4}
 
-function getStatiscticsOfTags(array) {
-  //   const statistic = {};
-  //   array
-  //     .flatMap((element) => element.tags)
-  //     .forEach((tag) => {
-  //       if (statistic[tag]) {
-  //         statistic[tag] += 1;
-  //       } else {
-  //         statistic[tag] = 1;
-  //       }
-  //       console.log(statistic);
-  //     });
-  //   return statistic;
-  return array
-    .flatMap((element) => element.tags)
-    .reduce(
-      (statistic, tag) => ({
-        ...statistic,
-        [tag]: statistic[tag] ? (statistic[tag] += 1) : 1,
-      }),
-      {}
-    );
+// function getStatiscticsOfTags(array) {
+//   //   const statistic = {};
+//   //   array
+//   //     .flatMap((element) => element.tags)
+//   //     .forEach((tag) => {
+//   //       if (statistic[tag]) {
+//   //         statistic[tag] += 1;
+//   //       } else {
+//   //         statistic[tag] = 1;
+//   //       }
+//   //       console.log(statistic);
+//   //     });
+//   //   return statistic;
+//   return array
+//     .flatMap((element) => element.tags)
+//     .reduce(
+//       (statistic, tag) => ({
+//         ...statistic,
+//         [tag]: statistic[tag] ? (statistic[tag] += 1) : 1,
+//       }),
+//       {}
+//     );
+// }
+// console.log(getStatiscticsOfTags(tweets));
+
+// 1. Створи клас User для створення користувача з такими властивостями:
+// a. userName - ім'я, рядок
+// b. age - вік, число
+// c. numbersOfPost - кількість постів, число
+// d. конструктор очікує 1 параметр - об'єкт налаштувань з однойменними властивостями
+// Додай метод getInfo(), який повертає рядок:
+// `Користувачеві <name> <age> років і в нього <posts> публікацій.`
+// Додай метод updateNumberOfPosts(amount), який оновлює кількість постів юзера
+// де amount - це число, кількість постів, що має додаватись до вже існуючих у властивості numbersOfPost
+
+class User {
+  constructor(params) {
+    this.userName = params.userName;
+    this.age = params.age;
+    this.numbersOfPost = params.numbersOfPost;
+  }
+
+  getInfo() {
+    return `Користувачеві ${this.userName} ${this.age} років і в нього ${this.numbersOfPost} публікацій.`;
+  }
+
+  updateNumberOfPosts(amount) {
+    this.numbersOfPost += amount;
+  }
 }
-console.log(getStatiscticsOfTags(tweets));
+
+const user1 = new User({
+  userName: "Denis",
+  age: 18,
+  numbersOfPost: 20,
+});
+
+console.log(user1.getInfo());
+user1.updateNumberOfPosts(10);
+console.log(user1);
