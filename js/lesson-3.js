@@ -148,28 +148,119 @@ const tweets = [
 // Додай метод updateNumberOfPosts(amount), який оновлює кількість постів юзера
 // де amount - це число, кількість постів, що має додаватись до вже існуючих у властивості numbersOfPost
 
-class User {
-  constructor(params) {
-    this.userName = params.userName;
-    this.age = params.age;
-    this.numbersOfPost = params.numbersOfPost;
+// class User {
+//   constructor(params) {
+//     this.userName = params.userName;
+//     this.age = params.age;
+//     this.numbersOfPost = params.numbersOfPost;
+//   }
+
+//   getInfo() {
+//     return `Користувачеві ${this.userName} ${this.age} років і в нього ${this.numbersOfPost} публікацій.`;
+//   }
+
+//   updateNumberOfPosts(amount) {
+//     this.numbersOfPost += amount;
+//   }
+// }
+
+// const user1 = new User({
+//   userName: "Denis",
+//   age: 18,
+//   numbersOfPost: 20,
+// });
+
+// console.log(user1.getInfo());
+// user1.updateNumberOfPosts(10);
+// console.log(user1);
+
+
+
+// 2. Напиши класс Client який створює об'єкт
+// із властивостями login, email
+// Об'яви приватні властивості #login і #email,
+// доступ до яких зроби через геттер и сеттер:
+// get getClientData() має повертати об'єкт з переліченими властивостями
+// set changeEmail(newEmail) перезаписує пошту користувача
+
+
+// class Client {
+//   #login;
+//   #email;
+
+//   constructor(login, email) {
+//     this.#login = login
+//     this.#email = email
+//   }
+
+//   get getClientData() {
+//     return {clientLogin: this.#login, clientEmail: this.#email}
+//   }
+
+//   set changeEmail(newEmail) {
+//     this.#email = newEmail
+//   }
+
+// }
+
+
+// const client1 = new Client("client-1", "client1@example.com")
+// console.log(client1.getClientData);
+// client1.changeEmail = "client1-new@example.com"
+// console.log(client1.getClientData.clientEmail);
+
+
+
+
+
+// 3. Напиши класс Notes який управляє коллекцієй нотаток у
+// властивості items.
+// Нотатка це  об'єкт з властивостями text, priority
+// Додай класу статичну властивість Priority,
+// в якій буде зберігатись об'єкт з пріорітетами ("hight", "middle", "low").
+// Додай методи getNotes(), addNote(note), removeNote(noteText)
+// updatePriority(noteText, newPriority)
+
+
+
+class Notes {
+
+  static Priority = {
+    HIGH: "high",
+    MIDDLE: "middle",
+    LOW: "low"
   }
 
-  getInfo() {
-    return `Користувачеві ${this.userName} ${this.age} років і в нього ${this.numbersOfPost} публікацій.`;
+  constructor() {
+    this.items = []
   }
 
-  updateNumberOfPosts(amount) {
-    this.numbersOfPost += amount;
+  getNotes() {
+    return this.items
   }
+
+  addNotes(note) {
+    this.items.push(note)
+  }
+
+  removeNote(noteText) {
+    this.items = this.items.filter((note) => note.text !== noteText)
+  }
+
+  updatePriority(noteText, newPriority) {
+    const note = this.items.find((note) => note.text === noteText)
+    if (note) {
+      note.priority = newPriority
+    }
+  }
+
 }
 
-const user1 = new User({
-  userName: "Denis",
-  age: 18,
-  numbersOfPost: 20,
-});
 
-console.log(user1.getInfo());
-user1.updateNumberOfPosts(10);
-console.log(user1);
+const testNote = new Notes()
+testNote.addNotes({text: "Some text", priority: Notes.Priority.MIDDLE})
+testNote.addNotes({text: "Lorem ipsum dolor", priority: Notes.Priority.HIGH})
+testNote.addNotes({text: "Hello World!", priority: Notes.Priority.LOW})
+testNote.removeNote("Some text")
+testNote.updatePriority("Hello World!", Notes.Priority.HIGH)
+console.table(testNote.getNotes())
