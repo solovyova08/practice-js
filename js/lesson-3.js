@@ -99,11 +99,41 @@ const tweets = [
 // повторювань тегів і вони мають бути відсортовані в алфавітному порядку.
 // Використай ланцюжок методів.
 
-function getSortedUniqueTags(array) {
+// function getSortedUniqueTags(array) {
+//   return array
+//     .flatMap((element) => element.tags)
+//     .filter((element, i, arr) => arr.indexOf(element) === i)
+//     .toSorted((a, b) => a.localeCompare(b));
+// }
+
+// console.log(getSortedUniqueTags(tweets));
+
+// 6. Напишіть функцію getStatiscticsOfTags(array), яка приймає масив
+// і повертає об'єкт статистики, який враховує скільки разів повторюється кожен тег
+// в усіх користувачів разом (не для кожного окремо)
+// має бути відповідь: {js: 5, nodejs: 5, html: 2, css: 2, react: 4}
+
+function getStatiscticsOfTags(array) {
+  //   const statistic = {};
+  //   array
+  //     .flatMap((element) => element.tags)
+  //     .forEach((tag) => {
+  //       if (statistic[tag]) {
+  //         statistic[tag] += 1;
+  //       } else {
+  //         statistic[tag] = 1;
+  //       }
+  //       console.log(statistic);
+  //     });
+  //   return statistic;
   return array
     .flatMap((element) => element.tags)
-    .filter((element, i, arr) => arr.indexOf(element) === i)
-    .toSorted((a, b) => a.localeCompare(b));
+    .reduce(
+      (statistic, tag) => ({
+        ...statistic,
+        [tag]: statistic[tag] ? (statistic[tag] += 1) : 1,
+      }),
+      {}
+    );
 }
-
-console.log(getSortedUniqueTags(tweets));
+console.log(getStatiscticsOfTags(tweets));
