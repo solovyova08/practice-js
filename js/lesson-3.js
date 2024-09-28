@@ -223,44 +223,111 @@ const tweets = [
 
 
 
-class Notes {
+// class Notes {
 
-  static Priority = {
-    HIGH: "high",
-    MIDDLE: "middle",
-    LOW: "low"
-  }
+//   static Priority = {
+//     HIGH: "high",
+//     MIDDLE: "middle",
+//     LOW: "low"
+//   }
 
-  constructor() {
-    this.items = []
-  }
+//   constructor() {
+//     this.items = []
+//   }
 
-  getNotes() {
-    return this.items
-  }
+//   getNotes() {
+//     return this.items
+//   }
 
-  addNotes(note) {
-    this.items.push(note)
-  }
+//   addNotes(note) {
+//     this.items.push(note)
+//   }
 
-  removeNote(noteText) {
-    this.items = this.items.filter((note) => note.text !== noteText)
-  }
+//   removeNote(noteText) {
+//     this.items = this.items.filter((note) => note.text !== noteText)
+//   }
 
-  updatePriority(noteText, newPriority) {
-    const note = this.items.find((note) => note.text === noteText)
-    if (note) {
-      note.priority = newPriority
-    }
-  }
+//   updatePriority(noteText, newPriority) {
+//     const note = this.items.find((note) => note.text === noteText)
+//     if (note) {
+//       note.priority = newPriority
+//     }
+//   }
 
-}
+// }
 
 
-const testNote = new Notes()
-testNote.addNotes({text: "Some text", priority: Notes.Priority.MIDDLE})
-testNote.addNotes({text: "Lorem ipsum dolor", priority: Notes.Priority.HIGH})
-testNote.addNotes({text: "Hello World!", priority: Notes.Priority.LOW})
-testNote.removeNote("Some text")
-testNote.updatePriority("Hello World!", Notes.Priority.HIGH)
-console.table(testNote.getNotes())
+// const testNote = new Notes()
+// testNote.addNotes({text: "Some text", priority: Notes.Priority.MIDDLE})
+// testNote.addNotes({text: "Lorem ipsum dolor", priority: Notes.Priority.HIGH})
+// testNote.addNotes({text: "Hello World!", priority: Notes.Priority.LOW})
+// testNote.removeNote("Some text")
+// testNote.updatePriority("Hello World!", Notes.Priority.HIGH)
+// console.table(testNote.getNotes())
+
+
+
+// 4. Створити клас Worker, у якого є властивості name і salary.
+// У класу Worker є метод getSalary, який повертає повідомлення
+// "Worker <name> has salary <salary> dollars"
+// Створити клас WorkerPosition, у якого є властивість position
+// і який успадковує клас Worker, додаючи метод getPosition
+// який повертає повідомлення "<name> works as <position>"
+
+// class Worker {
+//   constructor(name, salary) {
+//     this.name = name;
+//     this.salary = salary;
+//   }
+
+//   getSalary() {
+//     return `Worker ${this.name} has salary ${this.salary} dollars`;
+//   }
+// }
+
+// class WorkerPosition extends Worker {
+//   constructor(name, salary, position) {
+//     super(name, salary);
+//     this.position = position;
+//   }
+
+//   getPosition() {
+//     return `${this.name} works as ${this.position}`;
+//   }
+// }
+
+// const workerPosition = new WorkerPosition("Jul", 1000, "Developer");
+
+// console.log(workerPosition.getPosition());
+// console.log(workerPosition.getSalary());
+
+
+
+//!Homework
+// 5. Створити клас Contact для створення контакта з полями name, email і phone.
+// Потім створиnb клас ContactBook, який буде зберігати список контактів
+// і надавати методи для додавання, видалення та пошуку контактів.
+
+// 7. Є масив чисел, наприклад: arr = [1,2,3,4,5]
+// Напишіть функцію getSums(arr), яка повертає масив його часткових сум.
+// Іншими словами, виклик getSums(arr) має повертати новий масив з такої ж
+// кількості елементів, в якому на кожній позиції буде сума елементів масива
+// до цієї позиції включно
+
+// Наприклад: для arr = [1,2,3,4,5]
+// getSums( arr ) = [ 1, 1+2, 1+2+3, 1+2+3+4, 1+2+3+4+5 ] = [ 1, 3, 6, 10, 15 ]
+// Функція не має змінювати вхідний масив
+// Використовуйте метод reduce
+// 10. Знайти найдорожчий продукт у категорії "meat"
+// Напиши для цього функцію getMostExpensiveMeatProduct(products)
+
+// const products = [
+//   { name: 'Apple', category: 'fruits', price: 1.2, stock: 50 },
+//   { name: 'Banana', category: 'fruits', price: 0.8, stock: 100 },
+//   { name: 'Carrot', category: 'vegetables', price: 0.5, stock: 200 },
+//   { name: 'Broccoli', category: 'vegetables', price: 1.0, stock: 150 },
+//   { name: 'Milk', category: 'dairy', price: 1.5, stock: 20 },
+//   { name: 'Cheese', category: 'dairy', price: 2.5, stock: 5 },
+//   { name: 'Chicken', category: 'meat', price: 5.0, stock: 30 },
+//   { name: 'Beef', category: 'meat', price: 7.0, stock: 25 }
+// ];
