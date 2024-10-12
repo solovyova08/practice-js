@@ -180,25 +180,70 @@
 
 
 // 6. Видалити зі списку елементи, які позначені.
-const form = document.querySelector(".checkboxForm")
-const list = document.querySelector(".checkboxList")
-const items = document.querySelectorAll(".checkboxWrapper")
+// const form = document.querySelector(".checkboxForm")
+// const list = document.querySelector(".checkboxList")
+// const items = document.querySelectorAll(".checkboxWrapper")
 
-form.addEventListener("submit", (event) => {
-    event.preventDefault()
+// form.addEventListener("submit", (event) => {
+//     event.preventDefault()
 
-    const newItems = []
+//     const newItems = []
 
-    items.forEach(item => {
-        if (!item.lastElementChild.checked) {
-            newItems.push(item)
-        }
-    })
+//     items.forEach(item => {
+//         if (!item.lastElementChild.checked) {
+//             newItems.push(item)
+//         }
+//     })
 
-    list.innerHTML = ""
-    if (newItems.length === 0) {
-        list.innerHTML = "No more checkboxes now!"
-    } else {
-        list.append(...newItems)
+//     list.innerHTML = ""
+//     if (newItems.length === 0) {
+//         list.innerHTML = "No more checkboxes now!"
+//     } else {
+//         list.append(...newItems)
+//     }
+// })
+
+
+// 7. Написати функцію, яка буде створювати список подій клавіатури event.key та event.code
+// Додати класи на список eventList, на елементи eventCode та eventKey
+
+// const eventThumb = document.querySelector(".eventThumb");
+
+// window.addEventListener("keydown", onKeyBoardClick);
+
+// function onKeyBoardClick({ code, key }) {
+//   const markup = `<ul class="eventList">
+//     <li class="eventCode">${code}</li>
+//     <li class="eventKey">${key}</li>
+//     </ul>`;
+
+//     eventThumb.insertAdjacentHTML('beforeend', markup);
+// }
+
+//  8. При натисканні на будь-який рядок у табличці відобразіть
+//  повідомлення з назвою продукту та його ціною.
+//  "Ви вибрали <product> за <price>".
+
+const productTable = document.querySelector("#productTable");
+const productDetails = document.querySelector("#productDetails");
+
+productTable.addEventListener('click', onElemClick);
+
+function onElemClick(event) {
+    // console.log(event.target);
+
+    if (event.target.nodeName !== 'TD') {
+        return;
     }
-})
+
+    const parent = event.target.parentNode;
+    const product = parent.firstElementChild.textContent;
+    const price = parent.lastElementChild.textContent;
+
+    productDetails.textContent = `Ви вибрали ${product} за ${price}`;
+}
+
+// HOME ASSIGMENTS
+// 9. При натисканні на кожну з кнопок підсумовуються значення з data-атрибутів.
+// За натисканням на кнопку "Вивести результат" виводиться сума значення, а також статистика з
+// інформацією про те, яка кнопка була натиснута скільки разів.

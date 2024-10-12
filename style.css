@@ -50,7 +50,6 @@
 }
 
 /* Task 4, 5 */
-
 input {
   padding: 10px; /* Внутрішні відступи для зручності введення тексту */
   border: 1px solid #ccc; /* Світло-сіра рамка */
@@ -75,7 +74,6 @@ button:hover {
 }
 
 /* Task 6 */
-
 .checkboxList {
   display: flex;
   flex-direction: column;
@@ -87,4 +85,104 @@ button:hover {
   display: flex;
   align-items: center;
   margin: 5px 0;
+}
+
+/* Task 7 */
+.eventThumb {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.eventList {
+  list-style: none;
+  margin: 0;
+  padding: 15px;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+
+.eventKey {
+  color: firebrick;
+}
+
+.eventCode {
+  color: blueviolet;
+}
+
+/* Task 8 */
+#productTable {
+  border-collapse: collapse;
+  width: 800px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#productTable th,
+#productTable td {
+  border: 1px solid rgb(231, 156, 156);
+  padding: 8px;
+}
+
+#productTable th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+#productDetails {
+  font-weight: 700;
+  font-style: italic;
+  font-size: 24px;
+}
+
+/* Task 9 */
+
+.statList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.calcButton {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.calcButton:hover {
+  background-color: #3e8e41;
+}
+
+#resultButton {
+  background-color: #008cba;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+#resultButton:hover {
+  background-color: #006b9e;
+}
+
+#resultSection {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
 }
